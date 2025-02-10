@@ -4,6 +4,7 @@ let writer;
 let commandHistory = [];
 let historyIndex = -1;
 
+
 const connectBtn = document.getElementById('connect-btn');
 const disconnectBtn = document.getElementById('disconnect-btn');
 const sendBtn = document.getElementById('send-btn');
