@@ -1,0 +1,162 @@
+/* Full-screen container remains unchanged */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s, color 0.3s;
+    position: relative;
+}
+
+body.dark-theme {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+/* Background image with translucent effect */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/static/test.jpg') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.5; /* Adjust transparency here */
+    z-index: -100;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    .container {
+        background: rgba(255, 255, 255, 0); /* Adjust transparency */
+    }
+    
+}
+
+body.dark-theme .container {
+    .container {
+        background: rgba(60, 60, 60, 0.8); /* Adjust transparency */
+    }
+    
+}
+
+/* Controls */
+.controls {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 8px 16px;
+    margin-right: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Draggable & Resizable Console Window */
+#draggable-console {
+    position: absolute;
+    top: 100px;
+    right: 20px;  /* Initially placed on the right */
+    width: 600px;  /* Default width */
+    min-width: 300px;
+    min-height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    resize: both;  /* Allow resizing in both directions */
+}
+
+/* This class adds the snapping animation. It is added only when snapping is triggered. */
+#draggable-console.animate {
+    transition: all 0.3s ease-out;
+}
+
+/* Console header (drag handle) */
+#console-header {
+    background: #007bff;
+    color: white;
+    padding: 8px;
+    cursor: move;
+    user-select: none;
+}
+
+/* Terminal / Console Output */
+#terminal {
+    background: #000;
+    color: #fff;
+    padding: 15px;
+    overflow-y: auto;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+    flex: 1;
+}
+
+/* Input area inside console */
+.input-container {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    background: #222;
+}
+
+.input-container input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.input-container button {
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.input-container button:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Options & Appearance Settings */
+.options {
+    margin-top: 10px;
+}
+
+.options label {
+    margin-right: 20px;
+}
+
+.appearance-settings {
+    margin-top: 10px;
+}
+
+.appearance-settings label {
+    margin-right: 10px;
+}
